@@ -13,8 +13,8 @@ public class LoginTests extends AppiumConfig {
 //                .checkVersion("1.0.0") // AuthenticationScreen
 
         boolean res = new AuthenticationScreen(driver)
-                .fillEmail("noa@gmail.com") //AuthenticationScreen
-                .fillPassword("Nnoa12345$")  //AuthenticationScreen
+                .fillEmail("sonka04gmail.com") //AuthenticationScreen
+                .fillPassword("Sonka04$")  //AuthenticationScreen
                 .submitLogin()//ContactListScreen
                 .isContactListActivityPresent();
         Assert.assertTrue(res);
@@ -26,7 +26,7 @@ public class LoginTests extends AppiumConfig {
 //        boolean res  = new SplashScreen(driver)
 //                .checkVersion("1.0.0")
         boolean res = new AuthenticationScreen(driver)
-                .login(Auth.builder().email("noa@gmail.com").password("Nnoa12345$").build())
+                .login(Auth.builder().email("sonka04@gmail.com").password("Sonka04$").build())
                 .isContactListActivityPresent();
         Assert.assertTrue(res);
 

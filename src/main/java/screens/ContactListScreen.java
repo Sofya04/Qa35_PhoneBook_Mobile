@@ -8,10 +8,11 @@ import org.testng.Assert;
 
 import java.util.List;
 
-public class ContactListScreen extends BaseScreen{
+public class ContactListScreen extends BaseScreen {
     public ContactListScreen(AppiumDriver<AndroidElement> driver) {
         super(driver);
     }
+
     @FindBy(xpath = "//*[@resource-id='com.sheygam.contactapp:id/action_bar']/android.widget.TextView")
     AndroidElement activityViewText;
     @FindBy(xpath = "//*[@content-desc='More options']")
@@ -26,13 +27,13 @@ public class ContactListScreen extends BaseScreen{
     List<AndroidElement> contactPhonesList;
 
 
-    public ContactListScreen isContactAddedByName(String name, String lastName) {
-        checkContainsText(contactNamesList,name+" "+lastName);
+    public ContactListScreen isContactAddedByName(String name) {
+        checkContainsText(contactNamesList, name);
         return this;
     }
 
     public ContactListScreen isContactAddedByPhone(String phone) {
-        checkContainsText(contactPhonesList,phone);
+        checkContainsText(contactPhonesList, phone);
 
         return this;
     }
