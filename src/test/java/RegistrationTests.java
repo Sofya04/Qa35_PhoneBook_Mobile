@@ -10,8 +10,8 @@ public class RegistrationTests extends AppiumConfig {
     public void registrationSuccess(){
         int i = new Random().nextInt(1000)+1000;
         new AuthenticationScreen(driver)
-                .fillEmail("dog"+i+"@mail.com")
-                .fillPassword("Ddog12345!")
+                .fillEmail("cat"+i+"@mail.com")
+                .fillPassword("Ccat12345!")
                 .submitRegistration()
                 .assertContactListActivityPresent()
                 .logout();
@@ -33,7 +33,7 @@ public class RegistrationTests extends AppiumConfig {
     public void registrationNegativeWrongPassword(){
 
         new AuthenticationScreen(driver)
-                .registrationUnsuccessful(Auth.builder().email("bob@mail.com").password("Bb123").build())
+                .registrationUnsuccessful(Auth.builder().email("natalie@mail.com").password("Nn123").build())
                 .isErorrMessageContaisTextInAlert("At least 8 character");
     }
 
@@ -41,7 +41,7 @@ public class RegistrationTests extends AppiumConfig {
     public void registrationSuccessModel(){
         int i = new Random().nextInt(1000)+1000;
         new AuthenticationScreen(driver)
-                .registration(Auth.builder().email("bob"+i+"@mail.com").password("Bb12345$").build())
+                .registration(Auth.builder().email("natalie"+i+"@mail.com").password("Nn12345$").build())
                 .assertContactListActivityPresent()
                 .logout();
     }
