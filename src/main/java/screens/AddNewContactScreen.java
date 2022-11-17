@@ -55,7 +55,8 @@ public class AddNewContactScreen extends BaseScreen{
         Assert.assertTrue(errorMessage.getText().contains(text));
         okButton.click();
         pause(2);
-        driver.navigate().back();
+        //driver.navigate().back();
         return this;
     }
+
 }

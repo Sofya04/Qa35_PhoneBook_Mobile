@@ -16,16 +16,16 @@ public class BaseScreen {
     }
 
     public void type(AndroidElement element, String text){
+        element.clear();
         if(text!=null){
             element.click();
-            element.clear();
             element.sendKeys(text);
         }
     }
     public void type2(AndroidElement element, String text){
+        element.clear();
         if(text!=null){
             element.click();
-            element.clear();
             element.sendKeys(text);
         }
         driver.hideKeyboard();
@@ -44,6 +44,10 @@ public class BaseScreen {
 
     public boolean isShouldHave(AndroidElement element,String text,int time){
         return new WebDriverWait(driver,time)
+                .until(ExpectedConditions.textToBePresentInElement(element,text));
+    }
+    public void shouldHave(AndroidElement element,String text,int time){
+        new WebDriverWait(driver,time)
                 .until(ExpectedConditions.textToBePresentInElement(element,text));
     }
 
