@@ -1,10 +1,12 @@
 import config.AppiumConfig;
 import models.Auth;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import screens.AuthenticationScreen;
 import screens.ContactListScreen;
+
 
 public class RemoveContactsTests extends AppiumConfig {
     @BeforeClass
@@ -21,13 +23,16 @@ public class RemoveContactsTests extends AppiumConfig {
     @Test
     public void removeOneContactSuccess(){
         new ContactListScreen(driver).removeOneContact()
-                .isContactListActivityPresent();
-
+                .isListSizeOneLess();
     }
 
     @Test
     public void removeAllContacts(){
         new ContactListScreen(driver).removeAllContacts()
                 .assertNoContactsHerePresent();
+    }
+    @AfterClass
+    public void postCondition(){
+        new ContactListScreen(driver).logout3();
     }
 }
